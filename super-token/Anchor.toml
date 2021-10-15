@@ -1,0 +1,12 @@
+[programs.localnet]
+super_token = "DiyQRLEe3AgVV6TV3bGTYWZaS5TN9baFt9tXFSr3zS7e"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "mocha -t 1000000 tests/"

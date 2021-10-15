@@ -1,0 +1,295 @@
+{
+  "version": "0.0.0",
+  "name": "super_token",
+  "instructions": [
+    {
+      "name": "mintTo",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mintU",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintP",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintY",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenP",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenY",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenU",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenUFrom",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        },
+        {
+          "name": "startTime",
+          "type": "i64"
+        },
+        {
+          "name": "endTime",
+          "type": "i64"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "redeem",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mintU",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintP",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mintY",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenP",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenY",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenU",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenUTo",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        },
+        {
+          "name": "startTime",
+          "type": "i64"
+        },
+        {
+          "name": "endTime",
+          "type": "i64"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "createVault",
+      "accounts": [
+        {
+          "name": "mintU",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenU",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "mintY",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "mintP",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        },
+        {
+          "name": "startTime",
+          "type": "i64"
+        },
+        {
+          "name": "endTime",
+          "type": "i64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "SaberVault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "startTime",
+            "type": "i64"
+          },
+          {
+            "name": "endTime",
+            "type": "i64"
+          },
+          {
+            "name": "mintY",
+            "type": "publicKey"
+          },
+          {
+            "name": "mintP",
+            "type": "publicKey"
+          },
+          {
+            "name": "mintU",
+            "type": "publicKey"
+          },
+          {
+            "name": "tokenU",
+            "type": "publicKey"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 300,
+      "name": "InsufficientUnderlyingFunds",
+      "msg": "Insufficient funds from underlying token account"
+    },
+    {
+      "code": 301,
+      "name": "DepositUnderlyingToken",
+      "msg": "Failed to deposit underlying token"
+    },
+    {
+      "code": 302,
+      "name": "MintPrincipalToken",
+      "msg": "Failed to mint principal token"
+    },
+    {
+      "code": 303,
+      "name": "MintYieldToken",
+      "msg": "Failed to mint yield token"
+    },
+    {
+      "code": 304,
+      "name": "BurnPrincipalToken",
+      "msg": "Failed to burn principal token"
+    },
+    {
+      "code": 305,
+      "name": "BurnYieldToken",
+      "msg": "Failed to burn yield token"
+    },
+    {
+      "code": 306,
+      "name": "WithdrawUnderlyingToken",
+      "msg": "Failed to withdraw underlying token"
+    },
+    {
+      "code": 307,
+      "name": "SetAuthorityTokenU",
+      "msg": "Failed to set authority on underlying token account"
+    }
+  ],
+  "metadata": {
+    "address": "DiyQRLEe3AgVV6TV3bGTYWZaS5TN9baFt9tXFSr3zS7e"
+  }
+}
